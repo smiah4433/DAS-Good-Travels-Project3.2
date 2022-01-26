@@ -1,8 +1,8 @@
-// import logo from './logo.svg';
-import './Map.css';
+// Child of index, sibling to Travel//
+
+// import './Map.css'; MAP CSS FROM API????
 import React, {Component} from 'react'
-// import NewForm from './NewForm'
-// import Nav from './Nav'
+
 
 let baseUrl = 'http://localhost:3003'
 
@@ -10,7 +10,7 @@ class Map extends Component {
   constructor(props){
     super(props)
 
-    this.state = { //FIX STATE TO MATCH TRAVEL STUFF
+    this.state = { //FIX STATE TO MATCH APP STUFF
       baseUrl: '',
       apikey: '',
       query:'',
