@@ -11,10 +11,20 @@ class Map extends Component {
     super(props)
 
     this.state = { //FIX STATE TO MATCH TRAVEL STUFF
-      baseUrl: '',
-      apikey: '',
-      query:'',
-      searchUrl:'',
+      baseUrl: 'https://api.mapbox.com/styles/v1/',
+      username: 'syed-miah4433',
+      style_id: '',
+      overlay: '',
+      lon: ,
+      lat: ,
+      zoom: ,
+      bbox: '[ , , , ,]',
+      auto: '',
+      width: ,
+      height:
+
+
+      apikey: `access_token=${process.env.REACT_APP_API_KEY}`,
 
     }
   }
@@ -115,10 +125,10 @@ register = (e) => {
       credentials: "include"
     }).then( res => {
       console.log(res);
-      //if I checked for a 200 res code create. 
+      //if I checked for a 200 res code create.
       if(res.status === 200) {
         // console.log("here");
-        const findIndex = 
+        const findIndex =
         this.state.holidays.findIndex(holiday  => holiday._id === id)
         const copyHolidays = [...this.state.holidays]
         copyHolidays.splice(findIndex, 1)
@@ -221,7 +231,7 @@ register = (e) => {
           </tbody>
         </table>
         {
-          this.state.modalOpen && 
+          this.state.modalOpen &&
           <form onSubmit={this.handleSubmit}>
             <label>Name: </label>
             <input name="name" value={this.state.name} onChange={this.handleChange} /><br/>
@@ -235,7 +245,7 @@ register = (e) => {
       </div>
     );
   }
-  
+
 }
 
 export default Map;
