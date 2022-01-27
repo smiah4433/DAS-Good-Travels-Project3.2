@@ -1,11 +1,3 @@
-<<<<<<< HEAD:das_travel_frontend/src/Map.js
-// import logo from './logo.svg';
-import './Map.css';
-import React, {Component} from 'react'
-import GoogleMapReact from 'google-map-react';
-// import NewForm from './NewForm'
-// import Nav from './Nav'
-=======
 //Travel is the child of index.js and Sibling to Map.js
 import React, {Component} from 'react'
 import '../Travel.css';
@@ -13,7 +5,6 @@ import Explore from './Explore'
 import TopPlaces from './TopPlaces'
 
 
->>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
 let baseUrl = 'http://localhost:3003'
 
@@ -21,9 +12,6 @@ class App extends Component {
   constructor(props){
     super(props)
 
-<<<<<<< HEAD:das_travel_frontend/src/Map.js
-    this.state = { //FIX STATE TO MATCH TRAVEL STUFF
-=======
     this.state = {
       travels:[],
       modalOpen: false,
@@ -54,15 +42,19 @@ loginUser = (e) => {
     this.getTravel()
   })
 }
->>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
-      apikey: `access_token=${process.env.REACT_APP_API_KEY}`,
 
+register = (e) => {
+  e.preventDefault()
+  fetch(baseUrl + '/users/signup', {
+    method: 'POST',
+    body: JSON.stringify({
+      username: e.target.username.value,
+      password: e.target.password.value
+    }),
+    headers: {
+      'Content-Type': 'application/json'
     }
-<<<<<<< HEAD:das_travel_frontend/src/Map.js
-  }
-
-=======
   }).then(res => res.json())
   .then(resJson => {
     console.log(resJson)
@@ -88,13 +80,13 @@ loginUser = (e) => {
     })
   }
 
-  addHoliday = (newHoliday) => {
+  addTravel = (newTravel) => {
     //update state with the new travel frm the NewForm Component
 
-    const copyHolidays = [...this.state.travels]
-    copyHolidays.push(newHoliday)
+    const copyTravels = [...this.state.travels]
+    copyTravels.push(newTravel)
     this.setState({
-      travels: copyHolidays
+      travels: copyTravels
     })
   }
 
@@ -110,32 +102,32 @@ loginUser = (e) => {
     }).then(res => res.json())
     .then(resJson => {
       // console.log(resJson)
-      const copyHolidays = [...this.state.travels]
+      const copyTravels = [...this.state.travels]
       const findIndex = this.state.travels.findIndex(
         travel => travel._id === resJson.data._id)
-        copyHolidays[findIndex].celebrated = resJson.data.celebrated
+        copyTravels[findIndex].celebrated = resJson.data.celebrated
         this.setState({
-          travels: copyHolidays
+          travels: copyTravels
         })
     })
   }
 
-  deleteHoliday = (id) => { //This can either be bound to only our three usernames can delete or that you have to login to delete YOUR own posts. 
+  deleteTravel = (id) => { //This can either be bound to only our three usernames can delete or that you have to login to delete YOUR own posts.
     console.log(id)
     fetch(baseUrl + '/travels/' + id, {
       method: 'DELETE',
       credentials: "include"
     }).then( res => {
       console.log(res);
-      //if I checked for a 200 res code create. 
+      //if I checked for a 200 res code create.
       if(res.status === 200) {
         // console.log("here");
-        const findIndex = 
+        const findIndex =
         this.state.travels.findIndex(travel  => travel._id === id)
-        const copyHolidays = [...this.state.travels]
-        copyHolidays.splice(findIndex, 1)
+        const copyTravels = [...this.state.travels]
+        copyTravels.splice(findIndex, 1)
         this.setState({
-          travels: copyHolidays
+          travels: copyTravels
         })
       }
     })
@@ -149,11 +141,11 @@ loginUser = (e) => {
     }).then (res => res.json())
     // console.log(resJson);
     .then(resJson => {
-      const copyHolidays = [...this.state.travels]
+      const copyTravels = [...this.state.travels]
       const findIndex = this.state.travels.findIndex(travel => travel._id === resJson.data._id)
-      copyHolidays[findIndex].likes = resJson.data.likes
+      copyTravels[findIndex].likes = resJson.data.likes
       this.setState({
-        travels : copyHolidays
+        travels : copyTravels
       })
     })
   }
@@ -175,10 +167,10 @@ loginUser = (e) => {
     .then(resJson => {
       // console.log(resJson);
       const findIndex = this.state.travels.findIndex(travel => travel._id === resJson.data._id)
-      const copyHolidays = [...this.state.travels]
-      copyHolidays[findIndex] = resJson.data
+      const copyTravels = [...this.state.travels]
+      copyTravels[findIndex] = resJson.data
       this.setState({
-        travels: copyHolidays,
+        travels: copyTravels,
         modalOpen: false
       })
     })
@@ -205,32 +197,17 @@ loginUser = (e) => {
   componentDidMount() {
     this.getTravel()
   }
->>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
 
 
-  render() {
+  render () {
     return (
-<<<<<<< HEAD:das_travel_frontend/src/Map.js
-      // Important! Always set the container height explicitly
-      <Map google={this.props.google} zoom={14}>
-
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-        </InfoWindow>
-      </Map>
-=======
       <div className="App">
         {/* <Nav loginUser={this.loginUser}
         register={this.register} />
-        <h1>Holiday Celebrate</h1>
+        <h1>Travel Celebrate</h1>
         <NewForm baseUrl={baseUrl}
-        addHoliday={this.addHoliday} /> */}
+        addTravel={this.addTravel} /> */}
         <table>
           <tbody>
             {this.state.travels.map((travel, i) => {
@@ -240,15 +217,15 @@ loginUser = (e) => {
                   <td >{travel.description}</td>
                   <td >{travel.likes}</td>
                   <td onClick= {() => this.addLike(travel)}>Like</td>
-                  <td onClick= {() => this.showEditForm(travel)}>Edit this Holiday</td>
-                  <td onClick= {() => this.deleteHoliday(travel._id)}>X</td>
+                  <td onClick= {() => this.showEditForm(travel)}>Edit this Travel</td>
+                  <td onClick= {() => this.deleteTravel(travel._id)}>X</td>
                 </tr>
               )
             })}
           </tbody>
         </table>
         {
-          this.state.modalOpen && 
+          this.state.modalOpen &&
           <form onSubmit={this.handleSubmit}>
             <label>Name: </label>
             <input name="name" value={this.state.name} onChange={this.handleChange} /><br/>
@@ -260,9 +237,9 @@ loginUser = (e) => {
           </form>
         }
       </div>
->>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
     );
   }
+
 }
 
 export default App;
