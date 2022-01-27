@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import '../Travel.css';
 import Explore from './Explore'
 import TopPlaces from './TopPlaces'
-
+import NewForm from './NewForm'
 
 
 let baseUrl = 'http://localhost:3003'
@@ -205,9 +205,9 @@ register = (e) => {
       <div className="App">
         {/* <Nav loginUser={this.loginUser}
         register={this.register} />
-        <h1>Travel Celebrate</h1>
+        <h1>Travel Celebrate</h1> */}
         <NewForm baseUrl={baseUrl}
-        addTravel={this.addTravel} /> */}
+        addTravel={this.addTravel} />
         <table>
           <tbody>
             {this.state.travels.map((travel, i) => {
