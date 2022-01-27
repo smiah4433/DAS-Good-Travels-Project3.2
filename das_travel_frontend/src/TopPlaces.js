@@ -1,7 +1,8 @@
-//Review is the child of Travel.js
+//Child of Travel
 import React, {Component} from 'react'
+import Reviews from './Reviews'
 
-export default class Reviews extends Component {
+export default class TopPlaces extends Component {
     constructor(props){
         super(props)
     }
