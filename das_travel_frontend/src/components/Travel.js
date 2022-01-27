@@ -1,3 +1,11 @@
+<<<<<<< HEAD:das_travel_frontend/src/Map.js
+// import logo from './logo.svg';
+import './Map.css';
+import React, {Component} from 'react'
+import GoogleMapReact from 'google-map-react';
+// import NewForm from './NewForm'
+// import Nav from './Nav'
+=======
 //Travel is the child of index.js and Sibling to Map.js
 import React, {Component} from 'react'
 import '../Travel.css';
@@ -5,6 +13,7 @@ import Explore from './Explore'
 import TopPlaces from './TopPlaces'
 
 
+>>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
 let baseUrl = 'http://localhost:3003'
 
@@ -12,6 +21,9 @@ class App extends Component {
   constructor(props){
     super(props)
 
+<<<<<<< HEAD:das_travel_frontend/src/Map.js
+    this.state = { //FIX STATE TO MATCH TRAVEL STUFF
+=======
     this.state = {
       travels:[],
       modalOpen: false,
@@ -42,19 +54,15 @@ loginUser = (e) => {
     this.getTravel()
   })
 }
+>>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
+      apikey: `access_token=${process.env.REACT_APP_API_KEY}`,
 
-register = (e) => {
-  e.preventDefault()
-  fetch(baseUrl + '/users/signup', {
-    method: 'POST',
-    body: JSON.stringify({
-      username: e.target.username.value,
-      password: e.target.password.value
-    }),
-    headers: {
-      'Content-Type': 'application/json'
     }
+<<<<<<< HEAD:das_travel_frontend/src/Map.js
+  }
+
+=======
   }).then(res => res.json())
   .then(resJson => {
     console.log(resJson)
@@ -197,11 +205,26 @@ register = (e) => {
   componentDidMount() {
     this.getTravel()
   }
+>>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
 
 
 
-  render () {
+  render() {
     return (
+<<<<<<< HEAD:das_travel_frontend/src/Map.js
+      // Important! Always set the container height explicitly
+      <Map google={this.props.google} zoom={14}>
+
+        <Marker onClick={this.onMarkerClick}
+                name={'Current location'} />
+
+        <InfoWindow onClose={this.onInfoWindowClose}>
+            <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div>
+        </InfoWindow>
+      </Map>
+=======
       <div className="App">
         {/* <Nav loginUser={this.loginUser}
         register={this.register} />
@@ -237,9 +260,9 @@ register = (e) => {
           </form>
         }
       </div>
+>>>>>>> d7127c96637b0e797fc341707aabb055996945fd:das_travel_frontend/src/components/Travel.js
     );
   }
-  
 }
 
 export default App;
