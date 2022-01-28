@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './components/Nav'
 import Map from './components/Map';
 import Travel from './components/Travel';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <App />
     <Map />
     <Travel />
   </React.StrictMode>,
