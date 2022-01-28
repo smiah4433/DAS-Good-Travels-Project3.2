@@ -13,11 +13,13 @@ export default class NewForm extends Component {
       likes: 0,
       reviews: '',
       tags: '',
+      modalOpen: false
     }
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log(this.props.baseUrl)
     // fetch to the backend
     fetch(this.props.baseUrl + '/travels', {
       method: 'POST',
@@ -29,9 +31,16 @@ export default class NewForm extends Component {
       return res.json()
     }).then( data => {
       //console.log(data)
-      this.props.adddestination(data)
+      this.props.addTravel(data)
       this.setState({
-        name: ''
+        name: '',
+        location: '',
+        img: '',
+        description: '',
+        likes: 0,
+        reviews: '',
+        tags: '',
+
       })
     })
   }
@@ -45,11 +54,20 @@ export default class NewForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input type="text" id="name" name="name" onChange={ (e) => this.handleChange(e) } value={this.state.name}/>
-        <input type="submit" value="Add a reason to celebrate"/>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+            <label htmlFor="name">Name: </label>
+            <input type="text" id="name" name="name" onChange={ (e) => this.handleChange(e) } value={this.state.name}/>
+            <input type="submit" value="Add a new location!"/>
+        </form>
+        <form onSubmit={this.handleSubmit}>
+            <label htmlFor="img">Image:</label>
+            <input image="text" id="img" name="img" onChange={ (e) => this.handleChange(e) } value={this.state.img}/>
+            <input type="submit" value="Add an Image!"/>
+        </form>
+      </div>  
+
     )
   }
 }
+

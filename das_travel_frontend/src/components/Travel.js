@@ -217,8 +217,7 @@ register = (e) => {
                   <td >{travel.description}</td>
                   <td >{travel.likes}</td>
                   <td onClick= {() => this.addLike(travel)}>Like</td>
-                  <td onClick= {() => this.showEditForm(travel)}>Edit this Travel</td>
-                  <td onClick= {() => this.deleteTravel(travel._id)}>X</td>
+                  {/* <td onClick= {() => this.showEditForm(travel)}>Edit this Travel</td> */}
                 </tr>
               )
             })}
@@ -229,11 +228,11 @@ register = (e) => {
           <form onSubmit={this.handleSubmit}>
             <label>Name: </label>
             <input name="name" value={this.state.name} onChange={this.handleChange} /><br/>
-            <label>Description: </label>
-            <input name="description" value={this.state.description} onChange={this.handleChange} /><br/>
+            <label>Image: </label>
+            <input name="img" value={this.state.image} onChange={this.handleChange} /><br/>
 
             <button>Submit</button>
-
+            <button>Submit</button>
           </form>
         }
       </div>
