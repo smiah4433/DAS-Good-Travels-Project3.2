@@ -9,7 +9,7 @@ import NewForm from './NewForm'
 
 let baseUrl = 'http://localhost:3003'
 
-class App extends Component {
+class Travel extends Component {
   constructor(props){
     super(props)
 
@@ -205,10 +205,17 @@ register = (e) => {
     return (
       <div className="App">
         {/* <Nav loginUser={this.loginUser}
+<<<<<<< HEAD
         register={this.register} />
         <h1>Travel Celebrate</h1> */}
         <NewForm baseUrl={baseUrl}
         addTravel={this.addTravel} />
+=======
+        register={this.register} /> */}
+        <h1>Travel Celebrate</h1>
+        {/* <NewForm baseUrl={baseUrl}
+        addTravel={this.addTravel} /> */}
+>>>>>>> 4ec2f0c (Nav bar works, updated package json)
         <table>
           <tbody>
             {this.state.travels.map((travel, i) => {
@@ -242,4 +249,4 @@ register = (e) => {
 
 }
 
-export default App;
+export default Travel;
