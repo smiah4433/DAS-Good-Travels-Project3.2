@@ -1,5 +1,6 @@
 .Travel {
   text-align: center;
+  margin-top: 100px;
 }
 
 .Travel-logo {
@@ -11,6 +12,11 @@
   .Travel-logo {
     animation: Map-logo-spin infinite 20s linear;
   }
+}
+
+.travel.celebrated {
+  margin: 5;
+  
 }
 
 .Travel-header {
