@@ -1,6 +1,8 @@
 .Travel {
   text-align: center;
   margin-top: 100px;
+  position:absolute;
+  bottom: 600px;
 }
 
 .Travel-logo {
