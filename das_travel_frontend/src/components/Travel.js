@@ -19,7 +19,8 @@ class Travel extends Component {
       travelToBeEdited: {},
       description:'',
       name:'',
-
+      img: '',
+      location: ''
     }
   }
 
@@ -91,27 +92,27 @@ register = (e) => {
     })
   }
 
-  toggleCelebrated = (travel) => {
-    // console.log(travel)
-    fetch(baseUrl + '/travels/' + travel._id, {
-      method: 'PUT',
-      body: JSON.stringify({celebrated: !travel.celebrated}),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: "include"
-    }).then(res => res.json())
-    .then(resJson => {
-      // console.log(resJson)
-      const copyTravels = [...this.state.travels]
-      const findIndex = this.state.travels.findIndex(
-        travel => travel._id === resJson.data._id)
-        copyTravels[findIndex].celebrated = resJson.data.celebrated
-        this.setState({
-          travels: copyTravels
-        })
-    })
-  }
+  // toggleCelebrated = (travel) => {
+  //   // console.log(travel)
+  //   fetch(baseUrl + '/travels/' + travel._id, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({celebrated: !travel.celebrated}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     credentials: "include"
+  //   }).then(res => res.json())
+  //   .then(resJson => {
+  //     // console.log(resJson)
+  //     const copyTravels = [...this.state.travels]
+  //     const findIndex = this.state.travels.findIndex(
+  //       travel => travel._id === resJson.data._id)
+  //       copyTravels[findIndex].celebrated = resJson.data.celebrated
+  //       this.setState({
+  //         travels: copyTravels
+  //       })
+  //   })
+  // }
 
   deleteTravel = (id) => { //This can either be bound to only our three usernames can delete or that you have to login to delete YOUR own posts.
     console.log(id)
@@ -158,7 +159,9 @@ register = (e) => {
       method: 'PUT',
       body: JSON.stringify({
         name: e.target.name.value,
-        description: e.target.description.value
+        description: e.target.description.value,
+        img: e.target.img.value,
+        location: e.target.location.value,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -214,7 +217,9 @@ register = (e) => {
             {this.state.travels.map((travel, i) => {
               return (
                 <tr key={i}>
-                  <td onDoubleClick= {() => this.toggleCelebrated(travel)} className={ travel.celebrated ? 'celebrated' :null}>{travel.name}</td>
+                  <td >{travel.name}</td>
+                  <td >{travel.location}</td>
+                  <td><img className="images" src={travel.img}/></td>
                   <td >{travel.description}</td>
                   <td >{travel.likes}</td>
                   <td onClick= {() => this.addLike(travel)}>Like</td>
@@ -230,8 +235,13 @@ register = (e) => {
           <form onSubmit={this.handleSubmit}>
             <label>Name: </label>
             <input name="name" value={this.state.name} onChange={this.handleChange} /><br/>
+            <label>Location: </label>
+            <input name="location" value={this.state.location} onChange={this.handleChange} /><br/>
             <label>Image: </label>
-            <input name="img" value={this.state.image} onChange={this.handleChange} /><br/>
+            <input name="img" value={this.state.img} onChange={this.handleChange} /><br/>
+            <label>Description: </label>
+            <input name="description" value={this.state.description} onChange={this.handleChange} /><br/>
+
 
             <button>Submit</button>
             <button>Submit</button>

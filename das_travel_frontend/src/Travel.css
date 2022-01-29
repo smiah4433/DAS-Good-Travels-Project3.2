@@ -44,3 +44,8 @@
     transform: rotate(360deg);
   }
 }
+.images{
+  display: inline-block;
+  max-height: 68px;
+  max-width: 68px;
+}

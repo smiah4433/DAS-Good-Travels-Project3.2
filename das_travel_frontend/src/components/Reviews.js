@@ -40,7 +40,7 @@ export default class Reviews extends Component {
         return(
             <form onSubmit={this.handleSubmit}>
             <label htmlFor="review">Review: </label>
-            <input type="text" id="review" name="review" onChange={ (e) => this.handleChange(e) } value={this.state.name}/>
+            <input type="text" placeholder="Review here." id="review" name="review" onChange={ (e) => this.handleChange(e) } value={this.state.review}/>
             <input type="submit" value="Add a review"/>
           </form>
         )
