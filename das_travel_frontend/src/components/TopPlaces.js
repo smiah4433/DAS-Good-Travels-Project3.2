@@ -10,6 +10,7 @@ export default class TopPlaces extends Component {
     render(){
         return(
            <div>
+                   
            </div> 
         )
     }
