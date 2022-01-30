@@ -1,5 +1,8 @@
 .Travel {
   text-align: center;
+  margin-top: 100px;
+  position:absolute;
+  bottom: 600px;
 }
 
 .Travel-logo {
@@ -11,6 +14,11 @@
   .Travel-logo {
     animation: Map-logo-spin infinite 20s linear;
   }
+}
+
+.travel.celebrated {
+  margin: 5;
+  
 }
 
 .Travel-header {
@@ -35,4 +43,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+.images{
+  display: inline-block;
+  max-height: 68px;
+  max-width: 68px;
 }
