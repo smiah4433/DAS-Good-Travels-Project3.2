@@ -8,8 +8,6 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Map />
     <Travel />
   </React.StrictMode>,
   document.getElementById('root')
